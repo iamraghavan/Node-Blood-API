@@ -3,7 +3,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 const app = express();
-const port = 3001; // Set your desired port
+const port = 3000; // Set your desired port
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,10 +11,6 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-
-// Your API routes and logic here
-
-app.listen(port);
 
 // Define an endpoint to serve your CSV data
 app.get('/api/data', (req, res) => {
@@ -29,13 +25,7 @@ app.get('/api/data', (req, res) => {
     });
 });
 
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-
-
-
