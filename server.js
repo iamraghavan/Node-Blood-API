@@ -5,6 +5,17 @@ const fs = require('fs');
 const app = express();
 const port = 3000; // Set your desired port
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
+// Your API routes and logic here
+
+app.listen(YourPortNumber);
+
 // Define an endpoint to serve your CSV data
 app.get('/api/data', (req, res) => {
   const data = [];
